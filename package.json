@@ -1,0 +1,45 @@
+{
+  "name": "regex2",
+  "description": "A better RegExp implementation",
+  "version": "0.1.0",
+  "author": "Qix (http://github.com/qix-)",
+  "keywords": [
+    "regular",
+    "expression",
+    "expressions",
+    "regex",
+    "regexp",
+    "rgxp",
+    "std",
+    "std::regex",
+    "standard",
+    "library",
+    "c++",
+    "cpp",
+    "plus"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "pretest": "xo",
+    "test": "mocha --compilers coffee:coffee-script/register",
+    "configure": "node-gyp configure",
+    "build": "node-gyp build"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": "qix-/regex",
+  "devDependencies": {
+    "coffee-script": "^1.9.3",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "nan": "^2.4.0",
+    "node-gyp": "^3.4.0",
+    "should": "^7.0.1",
+    "xo": "^0.7.1"
+  },
+  "dependencies": {
+    "bindings": "^1.2.1"
+  }
+}
