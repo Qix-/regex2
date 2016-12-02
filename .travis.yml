@@ -8,7 +8,6 @@ install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then if [[ "${CXX}" == "clang++" ]]; then export CXX=clang++-3.8; else export CXX=g++-5; fi; fi
   - $CXX --version
   - npm/.bin/npm install
-  - node_modules/.bin/node-gyp rebuild --directory test
 script:
   - node_modules/.bin/_mocha --compilers coffee:coffee-script/register
 env:
