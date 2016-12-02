@@ -6,7 +6,6 @@
 			"include_dirs" : [
 				"<!(node -e \"require('nan')\")"
 			],
-			"cflags" : [ "-std=c++1", "-stdlib=libc++" ],
 			"conditions": [
 				[ 'OS!="win"', {
 					"cflags+": [ "-std=c++11" ],
