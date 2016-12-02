@@ -23,9 +23,6 @@ env:
 os:
   - linux
   - osx
-compiler:
-  - clang
-  - gcc
 addons:
   apt:
     sources:
