@@ -1,4 +1,4 @@
-# Regex2 [![Travis-CI.org Build Status](https://img.shields.io/travis/Qix-/regex2.svg?style=flat-square)](https://travis-ci.org/Qix-/regex2) [![Coveralls.io Coverage Rating](https://img.shields.io/coveralls/Qix-/regex2.svg?style=flat-square)](https://coveralls.io/r/Qix-/regex2)
+# Regex2 [![Travis-CI.org Build Status](https://img.shields.io/travis/Qix-/regex2.svg?style=flat-square)](https://travis-ci.org/Qix-/regex2)
 
 > A better `RegExp` implementation
 
