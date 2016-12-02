@@ -1,5 +1,8 @@
 language: node_js
 
+
+install:
+  - 'if [ `uname` == Linux ] && [ "${CXX}" == "clang++" ]; then export CXX=clang++-3.8 CC=clang-3.8; fi'
 script:
   - node_modules/.bin/_mocha --compilers coffee:coffee-script/register
 node_js:
@@ -17,3 +20,16 @@ node_js:
 os:
   - linux
   - osx
+compiler:
+  - clang
+  - gcc
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise-3.8
+    packages:
+      - gcc-5
+      - g++-5
+      - clang-3.8
+      - cppcheck
