@@ -1,22 +1,25 @@
-language: node_js
+language: cpp
 
 install:
-  - 'if [ `uname` == Linux ] && [ "${CXX}" == "clang++" ]; then export CXX=clang++-3.8 CC=clang-3.8; fi'
-  - 'npm i'
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - if [[ $TRAVIS_NODE_VERSION == "0.8" ]]; then npm install npm@2 && node_modules/.bin/npm install npm; else npm install npm; fi
+  - mv node_modules npm
+  - npm/.bin/npm --version
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then if [[ "${CXX}" == "clang++" ]]; then export CXX=clang++-3.8; else export CXX=g++-5; fi; fi
+  - $CXX --version
+  - npm/.bin/npm install
+  - node_modules/.bin/node-gyp rebuild --directory test
 script:
   - node_modules/.bin/_mocha --compilers coffee:coffee-script/register
-node_js:
-  - "0.10"
-  - "0.11"
-  - "0.12"
-  - "iojs"
-  - "1"
-  - "2"
-  - "3"
-  - "4"
-  - "5"
-  - "6"
-  - "7"
+env:
+  matrix:
+  - TRAVIS_NODE_VERSION="0.8"
+  - TRAVIS_NODE_VERSION="0.10"
+  - TRAVIS_NODE_VERSION="0.12"
+  - TRAVIS_NODE_VERSION="4"
+  - TRAVIS_NODE_VERSION="5"
+  - TRAVIS_NODE_VERSION="6"
+  - TRAVIS_NODE_VERSION="7"
 os:
   - linux
   - osx
